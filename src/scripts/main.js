@@ -25,13 +25,13 @@ function createTree(element, data) {
 
   element.append(ul);
 
-  for (const key in data) {
+  for (const [key, value] of Object.entries(data)) {
     const li = document.createElement('li');
 
     li.textContent = key;
 
-    if (Object.keys(data[key]).length) {
-      createTree(li, data[key]);
+    if (Object.keys(value).length) {
+      createTree(li, value);
     }
 
     ul.append(li);
